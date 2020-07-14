@@ -6,7 +6,7 @@
   "scripts": {
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages --remove '!CNAME' -d build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test"
