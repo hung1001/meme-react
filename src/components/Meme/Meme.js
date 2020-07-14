@@ -7,7 +7,7 @@ import MdHeart from 'react-ionicons/lib/MdHeart';
 import MdCheckmark from 'react-ionicons/lib/MdCheckmark';
 import IosBrowsersOutline from 'react-ionicons/lib/IosBrowsersOutline';
 
-import { LazyImage } from './LazyImage';
+import { LazyImage } from '../LazyImage';
 import './Meme.scss';
 
 const fetchJson = async (url) => {
@@ -46,7 +46,7 @@ const Meme = () => {
     return (
       (ignore === undefined) && (
         <div className='col d-flex' key={index}>
-          <div className='Meme__item'>
+          <div className='Meme__item lift'>
             <LazyImage className='Meme__img' src={src} alt='icon' />
             <span className='Meme__sub'>{key}</span>
             <Clipboard component='span' className='Meme__copy' title={`Copy ${key}`} data-clipboard-text={key} onSuccess={onClipboardSuccess}>

@@ -1,0 +1,12 @@
+body {
+  overflow-y: scroll;
+}
+
+.lift {
+  transition: box-shadow .25s ease, transform .25s ease;
+
+  &:hover {
+    box-shadow: 0 2rem 5rem rgba(22, 28, 45, .1), 0 .5rem 1rem -.75rem rgba(22, 28, 45, .05);
+    transform: translate3d(0, -5px, 0);
+  }
+}

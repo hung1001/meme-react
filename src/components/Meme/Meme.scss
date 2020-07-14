@@ -59,7 +59,7 @@
   &__item {
     align-items: center;
     border-radius: 8px;
-    box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+    border: 1px solid rgba(10, 10, 10, .1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
