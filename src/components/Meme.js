@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Clipboard from 'react-clipboard.js';
+import GitHubButton from 'react-github-btn';
 
 import MdHeart from 'react-ionicons/lib/MdHeart';
 import MdCheckmark from 'react-ionicons/lib/MdCheckmark';
@@ -83,6 +84,31 @@ const Meme = () => {
   if (fetchDone) {
     return (
       <div className='Meme'>
+        <div className='Meme__github'>
+          <GitHubButton
+            href='https://github.com/hung1001'
+            data-show-count='true'
+            aria-label='Follow @hung1001 on GitHub'
+          >
+            Follow @hung1001
+          </GitHubButton>
+          <GitHubButton
+            href='https://github.com/hung1001/meme-react'
+            data-icon='octicon-star'
+            data-show-count='true'
+            aria-label='Star hung1001/meme-react on GitHub'
+          >
+            Star
+          </GitHubButton>
+          <GitHubButton
+            href='https://github.com/hung1001/meme-react/fork'
+            data-icon='octicon-repo-forked'
+            data-show-count='true'
+            aria-label='Fork hung1001/meme-react on GitHub'
+          >
+            Fork
+          </GitHubButton>
+        </div>
         <div className='Meme__heading'>
           <h2 className='Meme__title'>Meme collections</h2>
           <div className='Meme__updated'>
@@ -101,7 +127,7 @@ const Meme = () => {
           </div>
         </div>
         <footer className='Meme__footer'>
-          by <a href='http://fb.com/100003827888172'>Hung1001</a> with <MdHeart className='mt-n1' fontSize='20px' color='red' beat={true} />
+          Made by <a href='http://fb.com/100003827888172'>Hung1001</a> with <MdHeart className='mt-n1' fontSize='20px' color='red' beat={true} />
         </footer>
         {
           tooltip.show && (
