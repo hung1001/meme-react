@@ -6,7 +6,47 @@ body {
   transition: box-shadow .25s ease, transform .25s ease;
 
   &:hover {
-    box-shadow: 0 2rem 5rem rgba(22, 28, 45, .1), 0 .5rem 1rem -.75rem rgba(22, 28, 45, .05);
     transform: translate3d(0, -5px, 0);
+    box-shadow: 0 2rem 5rem rgba(22, 28, 45, .1), 0 .5rem 1rem -.75rem rgba(22, 28, 45, .05);
+  }
+}
+
+.lds-ring {
+  display: inline-block;
+  height: 80px;
+  position: relative;
+  width: 80px;
+}
+
+.lds-ring div {
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border: 8px solid #007bff;
+  border-color: #007bff transparent transparent transparent;
+  border-radius: 50%;
+  height: 64px;
+  margin: 8px;
+  position: absolute;
+  width: 64px;
+
+  &:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

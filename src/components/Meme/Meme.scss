@@ -40,12 +40,19 @@
     margin-bottom: 2.5rem;
 
     .form-control {
+      padding-top: .25rem;
+
+      &::-webkit-search-cancel-button {
+        color: #80bdff;
+        cursor: pointer;
+      }
+
       &:focus {
         box-shadow: none;
       }
     }
 
-    &-label {
+    &-query {
       font-style: italic;
       margin: 1rem 0 0;
       text-align: right;
@@ -58,8 +65,8 @@
 
   &__item {
     align-items: center;
-    border-radius: 8px;
     border: 1px solid rgba(10, 10, 10, .1);
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -68,6 +75,20 @@
     padding: 1rem 1rem 2rem;
     position: relative;
     width: 100%;
+
+    .tooltip {
+      animation: fadeInUp .15s linear both;
+      right: 0;
+      top: calc(100% + 8px);
+
+      .arrow {
+        right: 10px;
+      }
+    }
+
+    .tooltip-inner {
+      display: block;
+    }
   }
 
   &__img {
@@ -115,60 +136,17 @@
     margin-bottom: 1.5rem;
     text-align: right;
   }
-
-  &__alert.alert {
-    align-items: center;
-    display: flex;
-    margin: 0;
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    z-index: 10;
-
-    svg {
-      fill: #155724;
-      flex-shrink: 0;
-      margin-left: .5rem;
-    }
-  }
 }
 
-.lds-ring {
-  display: inline-block;
-  height: 80px;
-  position: relative;
-  width: 80px;
-}
 
-.lds-ring div {
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border: 8px solid #007bff;
-  border-color: #007bff transparent transparent transparent;
-  border-radius: 50%;
-  height: 64px;
-  margin: 8px;
-  position: absolute;
-  width: 64px;
-
-  &:nth-child(1) {
-    animation-delay: -0.45s;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
   }
 
-  &:nth-child(2) {
-    animation-delay: -0.3s;
-  }
-
-  &:nth-child(3) {
-    animation-delay: -0.15s;
-  }
-}
-
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
