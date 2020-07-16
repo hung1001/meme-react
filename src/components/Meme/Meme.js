@@ -41,11 +41,11 @@ const Meme = () => {
   };
 
   const renderIcon = (item, index) => {
-    const { key, src, ignore } = item;
+    const { key, src } = item;
 
     const renderSearchKey = (key, value) => {
       // eslint-disable-next-line no-useless-escape
-      let term = key.search(value.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&'));
+      let term = key.toLowerCase().search(value.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&').toLowerCase());
 
       return (
         <>
@@ -57,34 +57,32 @@ const Meme = () => {
     };
 
     return (
-      (ignore === undefined) && (
-        <div className='col d-flex' key={index}>
-          <div className='Meme__item lift'>
-            <LazyImage className='Meme__img' src={src} alt='icon' />
-            <span className='Meme__sub'>
-              {(query !== '') ? renderSearchKey(key, query) : key}
-            </span>
-            <span className='Meme__action' id={`icon-${index + 1}`}>
-              <Clipboard
-                component='span'
-                className='Meme__copy'
-                data-clipboard-text={key}
-                onSuccess={onClipboardSuccess}
-              >
-                <IosBrowsersOutline fontSize='16px' />
-              </Clipboard>
-            </span>
-            {
-              (tooltip === `icon-${index + 1}`) && (
-                <span className='tooltip show bs-tooltip-bottom'>
-                  <span className='tooltip-inner' role='tooltip'>Copied</span>
-                  <span className='arrow' />
-                </span>
-              )
-            }
-          </div>
+      <div className='col d-flex' key={index}>
+        <div className='Meme__item lift' style={{ zIndex: tooltip === `icon-${index + 1}` && 1 }}>
+          <LazyImage className='Meme__img' src={src} alt='icon' />
+          <span className='Meme__sub'>
+            {(query !== '') ? renderSearchKey(key, query) : key}
+          </span>
+          <span className='Meme__action' id={`icon-${index + 1}`}>
+            <Clipboard
+              component='span'
+              className='Meme__copy'
+              data-clipboard-text={key}
+              onSuccess={onClipboardSuccess}
+            >
+              <IosBrowsersOutline fontSize='16px' />
+            </Clipboard>
+          </span>
+          {
+            (tooltip === `icon-${index + 1}`) && (
+              <span className='tooltip show bs-tooltip-bottom'>
+                <span className='tooltip-inner' role='tooltip'>Copied</span>
+                <span className='arrow' />
+              </span>
+            )
+          }
         </div>
-      )
+      </div>
     );
   };
 
