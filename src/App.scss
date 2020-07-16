@@ -1,3 +1,16 @@
+*:focus {
+  outline: 0;
+}
+
+.btn.focus,
+.btn:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
 body {
   overflow-y: scroll;
 }
