@@ -102,9 +102,20 @@ const Meme = () => {
       id = event.trigger.parentNode.id,
       isDuplicate = historyCopy.some(item => item.value === icon.value);
 
-    if (!isDuplicate) historyCopy.unshift(icon);
+    if (!isDuplicate) {
+      historyCopy.unshift(icon);
+    } else {
+      historyCopy.forEach((item, index) => {
+        if (item.value === icon.value) {
+          historyCopy.splice(index, 1);
+          historyCopy.unshift(item);
+        }
+      });
+    }
+
     setTooltip(id);
     setHistoryCopy(historyCopy);
+    window.localStorage.setItem('historyCopy', JSON.stringify(historyCopy));
     timer !== null && clearTimeout(timer);
     timer = setTimeout(() => setTooltip(''), 1800);
     return () => clearTimeout(timer);
