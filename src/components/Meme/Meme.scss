@@ -276,12 +276,24 @@ $white    : #fff;
       }
 
       .value {
+        display: flex;
+        flex-direction: column;
         flex-grow: 1;
         font-size: .95rem;
         overflow: hidden;
         padding-right: 1rem;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+
+        span {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .time {
+          color: var(--gray-02);
+          font-size: .8rem;
+          font-weight: 300;
+        }
       }
 
       .remove {
