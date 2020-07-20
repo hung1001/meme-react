@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import Clipboard from 'react-clipboard.js';
 import GitHubButton from 'react-github-btn';
 import { Dropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
@@ -11,6 +12,8 @@ import IosInformationCircleOutline from 'react-ionicons/lib/IosInformationCircle
 
 import { LazyImage } from '../LazyImage';
 import './Meme.scss';
+
+const DATA_URL = 'https://dl.dropboxusercontent.com/s/6pdwsq5ouvq0kk7/sus.json?dl=1';
 
 const fetchJson = async (url) => {
   const response = await axios.get(url);
@@ -29,7 +32,7 @@ const Meme = () => {
   let [query, setQuery] = useState('');
 
   useEffect(() => {
-    fetchJson('https://dl.dropboxusercontent.com/s/6pdwsq5ouvq0kk7/sus.json?dl=1')
+    !fetchDone && fetchJson(DATA_URL)
       .then(response => {
         setData(response);
         setEmo(response.emoticons);
@@ -95,9 +98,11 @@ const Meme = () => {
   };
 
   const onClipboardSuccess = (event) => {
+    const now = moment().format('DD/MM/YYYY, hh:mm:ss A');
     let icon = {
       value: event.text,
-      src: event.trigger.parentNode.previousElementSibling.previousElementSibling.src
+      src: event.trigger.parentNode.previousElementSibling.previousElementSibling.src,
+      time: now
     },
       id = event.trigger.parentNode.id,
       isDuplicate = historyCopy.some(item => item.value === icon.value);
@@ -108,6 +113,7 @@ const Meme = () => {
       historyCopy.forEach((item, index) => {
         if (item.value === icon.value) {
           historyCopy.splice(index, 1);
+          item.time = now;
           historyCopy.unshift(item);
         }
       });
@@ -145,7 +151,10 @@ const Meme = () => {
         <span className='thumb'>
           <img className='img-fluild' src={icon.src} alt='icon' />
         </span>
-        <span className='value'>{icon.value}</span>
+        <span className='value'>
+          <span className='key'>{icon.value}</span>
+          <span className='time'>{icon.time}</span>
+        </span>
         <span className='remove' title='Remove' onClick={removeHistoryIcon(index)}>×</span>
       </div>
     ))
