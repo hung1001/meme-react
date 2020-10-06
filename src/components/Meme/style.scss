@@ -20,10 +20,7 @@ $white    : #fff;
   }
 
   &__github {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    margin-top: 2rem;
+    transform: translateY(5px);
 
     > span:not(:first-child) {
       margin-left: .5rem;
@@ -35,16 +32,9 @@ $white    : #fff;
     margin: 0 1rem 0 0;
   }
 
-  &__heading {
-    align-items: center;
-    display: flex;
-    margin: 1rem 0 2rem;
-  }
-
   &__updated {
     font-size: .95rem;
     font-style: italic;
-    margin-left: auto;
   }
 
   &__search {
@@ -146,7 +136,7 @@ $white    : #fff;
     flex-shrink: 0;
     font-size: 1.05rem;
     justify-content: flex-end;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0;
   }
 
   &__history {
@@ -307,6 +297,20 @@ $white    : #fff;
           color: var(--blue);
         }
       }
+    }
+  }
+
+  .form-control:focus,
+  .btn:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  .form-control[readonly] {
+    background-color: rgba(233, 236, 239, .35);
+
+    &:focus {
+      border-color: #007bff;
     }
   }
 }

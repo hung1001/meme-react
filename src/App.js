@@ -1,5 +1,5 @@
 import React from 'react';
-import Meme from './components/Meme/Meme';
+import Meme from './components/Meme';
 import ScrollButton from './components/ScrollButton';
 import './App.scss';
 

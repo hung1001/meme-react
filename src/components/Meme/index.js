@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
 import Clipboard from 'react-clipboard.js';
-import GitHubButton from 'react-github-btn';
+import GitButton from 'components/GitButton';
 import { Dropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 
 import MdHeart from 'react-ionicons/lib/MdHeart';
@@ -11,21 +10,26 @@ import IosBrowsersOutline from 'react-ionicons/lib/IosBrowsersOutline';
 import IosInformationCircleOutline from 'react-ionicons/lib/IosInformationCircleOutline';
 
 import { LazyImage } from '../LazyImage';
-import './Meme.scss';
+import './style.scss';
 
-const DATA_URL = 'https://dl.dropboxusercontent.com/s/6pdwsq5ouvq0kk7/sus.json?dl=1';
+import {
+  DATA_URL
+} from 'utils/constants';
 
-const fetchJson = async (url) => {
-  const response = await axios.get(url);
-  return response.data;
-};
+import {
+  fetchJson,
+  getTimeUpdated,
+  setLocalStorage,
+  getLocalStorage
+} from 'utils/helpers';
 
 const Meme = () => {
   let timer;
+  const refInputURL = useRef(null);
   const [data, setData] = useState({});
   const [emo, setEmo] = useState([]);
   const [historyCopy, setHistoryCopy] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('historyCopy')) || [];
+    return getLocalStorage('historyCopy') || [];
   });
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [fetchDone, setFetchDone] = useState(false);
@@ -41,16 +45,8 @@ const Meme = () => {
       })
       .catch(error => console.log(error));
 
-    window.localStorage.setItem('historyCopy', JSON.stringify(historyCopy));
+    setLocalStorage(historyCopy, 'historyCopy');
   }, [fetchDone, historyCopy]);
-
-  const getTimeUpdated = data => {
-    const { data_version } = data;
-    let year = data_version.substring(0, 4);
-    let month = data_version.substring(4, 6);
-    let day = data_version.substring(6, 8);
-    return `${day}/${month}/${year}`;
-  };
 
   const renderIcon = (item, index) => {
     const { key, src } = item;
@@ -100,7 +96,7 @@ const Meme = () => {
 
   const onClipboardSuccess = (event) => {
     const now = moment().format('DD/MM/YYYY, hh:mm:ss A');
-    let historyCopy = JSON.parse(window.localStorage.getItem('historyCopy')) || [];
+    let historyCopy = getLocalStorage('historyCopy') || [];
     let icon = {
       value: event.text,
       src: event.trigger.parentNode.previousElementSibling.previousElementSibling.src,
@@ -164,36 +160,37 @@ const Meme = () => {
   if (fetchDone) {
     return (
       <div className='Meme'>
-        <div className='Meme__github'>
-          <GitHubButton
-            href='https://github.com/hung1001'
-            data-show-count='true'
-            aria-label='Follow @hung1001 on GitHub'
-          >
-            Follow @hung1001
-          </GitHubButton>
-          <GitHubButton
-            href='https://github.com/hung1001/meme-react/tree/develop'
-            data-icon='octicon-star'
-            data-show-count='true'
-            aria-label='Star hung1001/meme-react on GitHub'
-          >
-            Star
-          </GitHubButton>
-          <GitHubButton
-            href='https://github.com/hung1001/meme-react/fork'
-            data-icon='octicon-repo-forked'
-            data-show-count='true'
-            aria-label='Fork hung1001/meme-react on GitHub'
-          >
-            Fork
-          </GitHubButton>
+        <div className="row align-items-center mt-5 mt-md-4">
+          <div className="col-md">
+            <h2 className='Meme__title mb-2 mb-md-0'>
+              Meme collections, short code for <a href='https://chatpp.thangtd.com/' target='_blank' rel="noopener noreferrer">Chat++ extension</a>
+            </h2>
+          </div>
+          <div className="col-md-auto">
+            <div className='Meme__github'><GitButton /></div>
+          </div>
         </div>
-        <div className='Meme__heading'>
-          <h2 className='Meme__title'>Meme collections</h2>
-          <div className='Meme__updated'>
-            Last updated: {getTimeUpdated(data)}, {data.emoticons.length} icons
-        </div>
+        <div className='row align-items-center my-4 py-1'>
+          <div className="col-md-5">
+            <div className='Meme__updated mb-2 mb-md-0'>
+              Last updated: <b>{getTimeUpdated(data)}</b>, {data.emoticons.length} icons
+            </div>
+          </div>
+          <div className="col-md-7">
+            <div className='input-group'>
+              <input type='text' className='form-control text-center' value={DATA_URL} readOnly ref={refInputURL} />
+              <div className='input-group-append'>
+                <Clipboard
+                  component='button'
+                  className='btn btn-primary'
+                  data-clipboard-text={DATA_URL}
+                  onSuccess={() => refInputURL.current.focus()}
+                >
+                  Copy
+                </Clipboard>
+              </div>
+            </div>
+          </div>
         </div>
         <div className='Meme__search'>
           <input spellCheck='false' autoFocus className='form-control' type='search' placeholder='Search icon...' onChange={handleSearch} />
