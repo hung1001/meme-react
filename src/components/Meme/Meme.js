@@ -22,10 +22,11 @@ const fetchJson = async (url) => {
 
 const Meme = () => {
   let timer;
-  const initialHistory = JSON.parse(window.localStorage.getItem('historyCopy')) || [];
   const [data, setData] = useState({});
   const [emo, setEmo] = useState([]);
-  const [historyCopy, setHistoryCopy] = useState(initialHistory);
+  const [historyCopy, setHistoryCopy] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('historyCopy')) || [];
+  });
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [fetchDone, setFetchDone] = useState(false);
   let [tooltip, setTooltip] = useState('');
@@ -41,7 +42,7 @@ const Meme = () => {
       .catch(error => console.log(error));
 
     window.localStorage.setItem('historyCopy', JSON.stringify(historyCopy));
-  }, [historyCopy]);
+  }, [fetchDone, historyCopy]);
 
   const getTimeUpdated = data => {
     const { data_version } = data;
@@ -99,6 +100,7 @@ const Meme = () => {
 
   const onClipboardSuccess = (event) => {
     const now = moment().format('DD/MM/YYYY, hh:mm:ss A');
+    let historyCopy = JSON.parse(window.localStorage.getItem('historyCopy')) || [];
     let icon = {
       value: event.text,
       src: event.trigger.parentNode.previousElementSibling.previousElementSibling.src,
@@ -121,7 +123,6 @@ const Meme = () => {
 
     setTooltip(id);
     setHistoryCopy(historyCopy);
-    window.localStorage.setItem('historyCopy', JSON.stringify(historyCopy));
     timer !== null && clearTimeout(timer);
     timer = setTimeout(() => setTooltip(''), 1800);
     return () => clearTimeout(timer);
