@@ -1,3 +1,15 @@
+:root {
+  --blue-01   : #80bdff;
+  --black-01  : #0a0a0a;
+  --black-02  : #003559;
+  --gray-01   : #eee;
+  --gray-02   : #80868b;
+  --gray-03   : #6c757d;
+  --gray-04   : #e6e6e6;
+  --white-01  : #f6f6f6;
+  --white-02  : #f4f4f4;
+}
+
 *:focus {
   outline: 0;
 }
@@ -33,8 +45,8 @@ body {
 
 .lds-ring div {
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border: 8px solid #007bff;
-  border-color: #007bff transparent transparent transparent;
+  border: 8px solid var(--blue);
+  border-color: var(--blue) transparent transparent transparent;
   border-radius: 50%;
   height: 64px;
   margin: 8px;

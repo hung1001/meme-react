@@ -1,0 +1,31 @@
+{
+  "meme": {
+    "title": "ミームコレクション、（ショートコード）",
+    "chat++": "Chat ++拡張機能",
+    "last_updated": "最終更新:",
+    "icon": "アイコン",
+    "icons": "アイコン",
+    "copy": "コピー",
+    "copied": "コピー",
+    "input_placeholder": "検索アイコン...",
+    "search" : {
+      "label": "フィルタリング:",
+      "result": "結果",
+      "results": "結果"
+    },
+    "footer" : {
+      "made_by": "作られた",
+      "me": "Hung1001",
+      "with": "と",
+      "hosted_by": "が主催する",
+      "github": "Github"
+    },
+    "history_copy": {
+      "label": "コピーされたアイコン",
+      "empty": "アイコンはコピーされません !",
+      "remove": "削除する",
+      "remove_all": "履歴をクリア"
+    },
+    "lang": "言語"
+  }
+}

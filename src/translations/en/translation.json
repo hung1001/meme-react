@@ -1,0 +1,31 @@
+{
+  "meme": {
+    "title": "Meme collections, (short code) for",
+    "chat++": "Chat++ extension",
+    "last_updated": "Last updated:",
+    "icon": "icon",
+    "icons": "icons",
+    "copy": "Copy",
+    "copied": "Copied",
+    "input_placeholder": "Search icon...",
+    "search" : {
+      "label": "Filter by:",
+      "result": "result",
+      "results": "results"
+    },
+    "footer" : {
+      "made_by": "Made by",
+      "me": "Hung1001",
+      "with": "with",
+      "hosted_by": "hosted by",
+      "github": "Github"
+    },
+    "history_copy": {
+      "label": "Icons copied",
+      "empty": "Nothing icons are copied !",
+      "remove": "Remove",
+      "remove_all": "Clear history"
+    },
+    "lang": "Language"
+  }
+}

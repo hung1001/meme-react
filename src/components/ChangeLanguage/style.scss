@@ -1,0 +1,77 @@
+.Meme-nav {
+  position: fixed;
+  right: 40px;
+  top: 20px;
+  z-index: 1000;
+
+  &__current {
+    align-items: center;
+    background: var(--white);
+    cursor: move;
+    display: flex;
+    border-radius: 4px;
+    padding: 8px 10px;
+
+    .text {
+      color: var(--black-02);
+      font-weight: 600;
+      margin-right: 10px;
+      text-transform: uppercase;
+    }
+
+    .img-fluid {
+      height: 17px;
+      margin-bottom: 2px;
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+  }
+
+  &__dropdown:hover &__list {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  &__list {
+    background: var(--white);
+    border: 1px solid var(--gray-04);
+    border-radius: 4px;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, .15);
+    margin: 0;
+    min-width: 10rem;
+    opacity: 0;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transform: translateY(20px);
+    transition: transform .25s ease-out;
+    visibility: hidden;
+  }
+
+  &__item {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    list-style: none;
+    padding: 8px 16px;
+
+    &:hover {
+      background: var(--white-02);
+    }
+
+    .text {
+      font-size: 15px;
+      margin-left: 10px;
+    }
+
+    .img-fluid {
+      height: 15px;
+    }
+  }
+}
