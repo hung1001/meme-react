@@ -1,0 +1,31 @@
+{
+  "meme": {
+    "title": "Bộ sưu tập Meme, (mã) sử dụng cho",
+    "chat++": "tiện ích Chat++",
+    "last_updated": "Cập nhật lần cuối:",
+    "icon": "biểu tượng",
+    "icons": "biểu tượng",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép",
+    "input_placeholder": "Tìm kiếm biểu tượng...",
+    "search" : {
+      "label": "Lọc theo:",
+      "result": "kết quả",
+      "results": "kết quả"
+    },
+    "footer" : {
+      "made_by": "Được tạo bởi",
+      "me": "Hung1001",
+      "with": "bằng",
+      "hosted_by": "lưu trữ bởi",
+      "github": "Github"
+    },
+    "history_copy": {
+      "label": "Biểu tượng đã sao chép",
+      "empty": "Không có biểu tượng nào !",
+      "remove": "Xoá",
+      "remove_all": "Xoá lịch sử"
+    },
+    "lang": "Ngôn ngữ"
+  }
+}
