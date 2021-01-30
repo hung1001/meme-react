@@ -1,13 +1,13 @@
 :root {
-  --blue-01   : #80bdff;
-  --black-01  : #0a0a0a;
-  --black-02  : #003559;
-  --gray-01   : #eee;
-  --gray-02   : #80868b;
-  --gray-03   : #6c757d;
-  --gray-04   : #e6e6e6;
-  --white-01  : #f6f6f6;
-  --white-02  : #f4f4f4;
+  --blue-01: #80bdff;
+  --black-01: #0a0a0a;
+  --black-02: #003559;
+  --gray-01: #eee;
+  --gray-02: #80868b;
+  --gray-03: #6c757d;
+  --gray-04: #e6e6e6;
+  --white-01: #f6f6f6;
+  --white-02: #f4f4f4;
 }
 
 *:focus {
@@ -28,11 +28,11 @@ body {
 }
 
 .lift {
-  transition: box-shadow .25s ease, transform .25s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 
   &:hover {
     transform: translate3d(0, -5px, 0);
-    box-shadow: 0 2rem 5rem rgba(22, 28, 45, .1), 0 .5rem 1rem -.75rem rgba(22, 28, 45, .05);
+    box-shadow: 0 2rem 5rem rgba(22, 28, 45, 0.1), 0 0.5rem 1rem -0.75rem rgba(22, 28, 45, 0.05);
   }
 }
 

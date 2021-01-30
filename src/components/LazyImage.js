@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Image = styled.img`
   @keyframes loaded {
     0% {
-      opacity: .1;
+      opacity: 0.1;
     }
     100% {
       opacity: 1;
@@ -13,7 +13,7 @@ const Image = styled.img`
   }
 
   &.loaded:not(.error) {
-    animation: loaded .3s ease-in-out;
+    animation: loaded 0.3s ease-in-out;
   }
 
   &.error {
@@ -21,16 +21,16 @@ const Image = styled.img`
   }
 `;
 
-export const LazyImage = props => {
+export const LazyImage = (props) => {
   const { src, alt, className } = props;
   const [imageRef, setImageRef] = useState();
   const [imageSrc, setImageSrc] = useState(placeHolder);
 
-  const onLoad = event => {
+  const onLoad = (event) => {
     event.target.classList.add('loaded');
   };
 
-  const onError = event => {
+  const onError = (event) => {
     event.target.classList.add('error');
   };
 
@@ -41,12 +41,9 @@ export const LazyImage = props => {
     if (imageRef && imageSrc !== src) {
       if (IntersectionObserver) {
         observer = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
-              if (
-                !didCancel &&
-                (entry.intersectionRatio > 0 || entry.isIntersecting)
-              ) {
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!didCancel && (entry.intersectionRatio > 0 || entry.isIntersecting)) {
                 setImageSrc(src);
                 observer.unobserve(imageRef);
               }
@@ -54,8 +51,8 @@ export const LazyImage = props => {
           },
           {
             threshold: 0.01,
-            rootMargin: '75%'
-          }
+            rootMargin: '75%',
+          },
         );
         observer.observe(imageRef);
       } else {
@@ -68,7 +65,6 @@ export const LazyImage = props => {
         observer.unobserve(imageRef);
       }
     };
-
   }, [src, imageSrc, imageRef]);
 
   return (

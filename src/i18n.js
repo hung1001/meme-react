@@ -7,25 +7,23 @@ import ja from './translations/ja/translation.json';
 
 const resources = {
   en: {
-    translation: en
+    translation: en,
   },
   vi: {
-    translation: vi
+    translation: vi,
   },
   ja: {
-    translation: ja
+    translation: ja,
   },
 };
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources: resources,
-    lng: window.localStorage.getItem('lang') || 'en',
-    keySeparator: '.',
-    interpolation: {
-      escapeValue: false
-    }
-  });
+i18n.use(initReactI18next).init({
+  resources: resources,
+  lng: window.localStorage.getItem('lang') || 'en',
+  keySeparator: '.',
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 export default i18n;

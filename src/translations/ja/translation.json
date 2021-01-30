@@ -8,12 +8,12 @@
     "copy": "コピー",
     "copied": "コピー",
     "input_placeholder": "検索アイコン...",
-    "search" : {
+    "search": {
       "label": "フィルタリング:",
       "result": "結果",
       "results": "結果"
     },
-    "footer" : {
+    "footer": {
       "made_by": "作られた",
       "me": "Hung1001",
       "with": "と",

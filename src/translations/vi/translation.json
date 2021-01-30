@@ -8,12 +8,12 @@
     "copy": "Sao chép",
     "copied": "Đã sao chép",
     "input_placeholder": "Tìm kiếm biểu tượng...",
-    "search" : {
+    "search": {
       "label": "Lọc theo:",
       "result": "kết quả",
       "results": "kết quả"
     },
-    "footer" : {
+    "footer": {
       "made_by": "Được tạo bởi",
       "me": "Hung1001",
       "with": "bằng",

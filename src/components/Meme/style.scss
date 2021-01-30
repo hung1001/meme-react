@@ -1,7 +1,7 @@
-$black    : #000;
-$black-01 : #0a0a0a;
-$black-02 : #161c2d;
-$white    : #fff;
+$black: #000;
+$black-01: #0a0a0a;
+$black-02: #161c2d;
+$white: #fff;
 
 .Meme {
   display: flex;
@@ -17,7 +17,7 @@ $white    : #fff;
     transform: translateY(5px);
 
     > span:not(:first-child) {
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   }
 
@@ -27,14 +27,14 @@ $white    : #fff;
   }
 
   &__updated {
-    font-size: .95rem;
+    font-size: 0.95rem;
   }
 
   &__search {
     margin-bottom: 2.5rem;
 
     .form-control {
-      padding-top: .25rem;
+      padding-top: 0.25rem;
 
       &::-webkit-search-cancel-button {
         color: var(--blue-01);
@@ -59,7 +59,7 @@ $white    : #fff;
 
   &__item {
     align-items: center;
-    border: 1px solid rgba($black-01, .1);
+    border: 1px solid rgba($black-01, 0.1);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -71,7 +71,7 @@ $white    : #fff;
     width: 100%;
 
     .tooltip {
-      animation: fadeInUp .15s linear both;
+      animation: fadeInUp 0.15s linear both;
       right: 0;
       top: calc(100% + 8px);
 
@@ -86,18 +86,18 @@ $white    : #fff;
   }
 
   &__img {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     max-width: 100%;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 
     &:hover {
-      opacity: .85;
+      opacity: 0.85;
     }
   }
 
   &__sub {
-    font-size: .9rem;
-    margin-bottom: .5rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
     word-break: break-all;
   }
 
@@ -105,8 +105,8 @@ $white    : #fff;
     align-items: center;
     background: var(--white);
     border-bottom-right-radius: 8px;
-    border-left: 1px solid rgba($black-01, .1);
-    border-top: 1px solid rgba($black-01, .1);
+    border-left: 1px solid rgba($black-01, 0.1);
+    border-top: 1px solid rgba($black-01, 0.1);
     border-top-left-radius: 8px;
     bottom: 0;
     cursor: pointer;
@@ -115,7 +115,7 @@ $white    : #fff;
     padding: 6px;
     position: absolute;
     right: 0;
-    transition: all .25s ease;
+    transition: all 0.25s ease;
     z-index: 1;
 
     &:hover {
@@ -148,13 +148,13 @@ $white    : #fff;
 
     > button.btn-secondary:not(:disabled):not(.disabled) {
       background: var(--white);
-      border-color: rgba($black, .15);
-      padding-bottom: .65rem;
+      border-color: rgba($black, 0.15);
+      padding-bottom: 0.65rem;
 
       &:focus,
       &:active {
         background: var(--white);
-        border-color: rgba($black, .2);
+        border-color: rgba($black, 0.2);
         box-shadow: none;
       }
 
@@ -169,7 +169,6 @@ $white    : #fff;
   }
 
   &__dropdown-toggle[aria-expanded='true'] {
-
     &:before,
     &:after {
       border-style: solid;
@@ -180,7 +179,7 @@ $white    : #fff;
     }
 
     &:before {
-      border-color: transparent transparent rgba($black, .15);
+      border-color: transparent transparent rgba($black, 0.15);
       bottom: -16px;
       z-index: 1000;
     }
@@ -199,14 +198,14 @@ $white    : #fff;
     max-width: 22rem;
     min-width: 20rem;
     overflow: auto;
-    padding: .8rem 1rem 1.5rem 1.2rem;
+    padding: 0.8rem 1rem 1.5rem 1.2rem;
 
     .empty {
       align-items: center;
       color: var(--gray-03);
       display: flex;
       justify-content: center;
-      margin-top: .6rem;
+      margin-top: 0.6rem;
 
       svg {
         fill: var(--gray-03);
@@ -243,11 +242,11 @@ $white    : #fff;
 
       .thumb {
         border-radius: 50%;
-        box-shadow: 0 0 0 .08rem rgba($black-02, .05);
+        box-shadow: 0 0 0 0.08rem rgba($black-02, 0.05);
         display: inline-block;
         flex-shrink: 0;
         height: 60px;
-        margin-right: .8rem;
+        margin-right: 0.8rem;
         padding: 10px;
         width: 60px;
       }
@@ -262,7 +261,7 @@ $white    : #fff;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        font-size: .95rem;
+        font-size: 0.95rem;
         overflow: hidden;
         padding-right: 1rem;
 
@@ -274,7 +273,7 @@ $white    : #fff;
 
         .time {
           color: var(--gray-02);
-          font-size: .8rem;
+          font-size: 0.8rem;
           font-weight: 300;
         }
       }
@@ -300,14 +299,13 @@ $white    : #fff;
   }
 
   .form-control[readonly] {
-    background-color: rgba(233, 236, 239, .35);
+    background-color: rgba(233, 236, 239, 0.35);
 
     &:focus {
       border-color: #007bff;
     }
   }
 }
-
 
 @keyframes fadeInUp {
   from {

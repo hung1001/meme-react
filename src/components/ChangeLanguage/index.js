@@ -23,18 +23,12 @@ function ChangeLanguage(props) {
           <img className="img-fluid" src={currentLang} alt="flag" />
         </div>
         <ul className="Meme-nav__list">
-          {
-            LOCALES.map(locale => (
-              <li
-                key={locale.lang}
-                className="Meme-nav__item"
-                onClick={handleChangeLang(locale)}
-              >
-                <img className="img-fluid" src={locale.img} alt="flag" />
-                <span className="text">{locale.desc}</span>
-              </li>
-            ))
-          }
+          {LOCALES.map((locale) => (
+            <li key={locale.lang} className="Meme-nav__item" onClick={handleChangeLang(locale)}>
+              <img className="img-fluid" src={locale.img} alt="flag" />
+              <span className="text">{locale.desc}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

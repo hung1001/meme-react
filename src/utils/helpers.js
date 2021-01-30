@@ -5,7 +5,7 @@ const fetchJson = async (url) => {
   return response.data;
 };
 
-const getTimeUpdated = data => {
+const getTimeUpdated = (data) => {
   const { data_version } = data;
   let year = data_version.substring(0, 4);
   let month = data_version.substring(4, 6);
@@ -17,9 +17,4 @@ const setLocalStorage = (arr, name) => window.localStorage.setItem(name, JSON.st
 
 const getLocalStorage = (name) => JSON.parse(window.localStorage.getItem(name));
 
-export {
-  fetchJson,
-  getTimeUpdated,
-  setLocalStorage,
-  getLocalStorage
-};
+export { fetchJson, getTimeUpdated, setLocalStorage, getLocalStorage };

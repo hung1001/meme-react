@@ -16,20 +16,20 @@ const ScrollButton = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
   const Button = styled.button`
     display: ${showScroll ? 'inline-flex' : 'none'};
     background: none;
-    border: 1px solid rgba(10, 10, 10, .09);
+    border: 1px solid rgba(10, 10, 10, 0.09);
     border-top-left-radius: 40px;
     bottom: 0;
-    padding: .9rem 1rem .5rem 1.3rem;
+    padding: 0.9rem 1rem 0.5rem 1.3rem;
     position: fixed;
     right: 0;
-    transition: all .25s ease;
+    transition: all 0.25s ease;
     z-index: 10;
 
     &:focus {
@@ -44,11 +44,8 @@ const ScrollButton = () => {
   window.addEventListener('scroll', checkScrollTop);
 
   return (
-    <Button
-      title='Back to top'
-      onClick={() => scrollToTop()}
-    >
-      <IosArrowUp fontSize='20px' />
+    <Button title="Back to top" onClick={() => scrollToTop()}>
+      <IosArrowUp fontSize="20px" />
     </Button>
   );
 };

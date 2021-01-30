@@ -8,12 +8,12 @@
     "copy": "Copy",
     "copied": "Copied",
     "input_placeholder": "Search icon...",
-    "search" : {
+    "search": {
       "label": "Filter by:",
       "result": "result",
       "results": "results"
     },
-    "footer" : {
+    "footer": {
       "made_by": "Made by",
       "me": "Hung1001",
       "with": "with",

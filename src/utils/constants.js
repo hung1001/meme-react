@@ -6,23 +6,20 @@ const LOCALES = [
   {
     lang: 'en',
     desc: 'English',
-    img: en_img
+    img: en_img,
   },
   {
     lang: 'vi',
     desc: 'Tiếng Việt',
-    img: vi_img
+    img: vi_img,
   },
   {
     lang: 'ja',
     desc: '日本語',
-    img: ja_img
+    img: ja_img,
   },
 ];
 
 const DATA_URL = 'https://dl.dropboxusercontent.com/s/6pdwsq5ouvq0kk7/sus.json?dl=1';
 
-export {
-  DATA_URL,
-  LOCALES
-};
+export { DATA_URL, LOCALES };
